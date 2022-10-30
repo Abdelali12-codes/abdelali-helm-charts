@@ -3,12 +3,23 @@ entries:
   helm-chart-test:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-10-29T18:50:37.568893952Z"
+    created: "2022-10-30T20:45:02.426975955Z"
     description: A Helm chart for Kubernetes
     digest: dcd0fc5e6626d50fae9247cba866fbdb9b6b7e79549ac8e191e2b1965cfda017
     name: helm-chart-test
     type: application
     urls:
-    - https://abdelali12-codes.github.io/abdelali-helm-charts/helm-chart-test-0.1.0.tgz
+    - abdelali12-codes.github.io/abdelali-helm-charts/helm-chart-test-0.1.0.tgz
     version: 0.1.0
-generated: "2022-10-29T18:50:37.567874709Z"
+  spring-boot-app:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2022-10-30T20:45:02.427660995Z"
+    description: A Helm chart for Kubernetes
+    digest: 13544762e0e3421c4ba979575e15f6ca348c514a71046ce4ac7dcb552929c455
+    name: spring-boot-app
+    type: application
+    urls:
+    - abdelali12-codes.github.io/abdelali-helm-charts/spring-boot-app-0.1.0.tgz
+    version: 0.1.0
+generated: "2022-10-30T20:45:02.422468084Z"

@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.deployment.name }}
+  labels:
+    {{ .Values.deployment.labels }}
+spec:
+  replicas: {{ .Values.deployment.replicas }}
+  selector:
+    matchLabels:
+      {{ .Values.deployment.podLabels }}
+  template:
+    metadata:
+      labels:
+        {{ .Values.deployment.podLabels }}
+    spec:
+     containers:
+     - image: {{ .Values.deployment.image }}
+       name: {{ .Values.deployment.containername }}
+       ports:
+       - containerPort: {{ .Values.deployment.containerport }}
+       resources:
+          {{ .Values.deployment.resources }}
+            

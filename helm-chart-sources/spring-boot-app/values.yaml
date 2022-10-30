@@ -1,0 +1,29 @@
+deployment:
+    name: spring-boot-deployment
+    replicas: 2
+    labels:
+      release: helm
+    podLabels: 
+      release: helm
+    image: abdelalidocker/nginx-k8s
+    containername: spring-boot-container
+    containerport: 80
+    resources:
+          requests:
+             memory: "128Mi"
+             cpu: "100m"
+          limits:
+            memory: "500Mi"
+            cpu: "200m"
+
+
+service:
+    name: helm-service
+    serviceLabels:
+       release: helm
+    selector:
+      release: helm
+    type: NodePort
+    port: 80
+    targetPort: 80
+    nodePort: 30080
