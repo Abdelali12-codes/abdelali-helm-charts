@@ -9,7 +9,7 @@ entries:
     name: helm-chart-test
     type: application
     urls:
-    - abdelali12-codes.github.io/abdelali-helm-charts/helm-chart-test-0.1.0.tgz
+    - https://abdelali12-codes.github.io/abdelali-helm-charts/helm-chart-test-0.1.0.tgz
     version: 0.1.0
   spring-boot-app:
   - apiVersion: v2
@@ -20,6 +20,6 @@ entries:
     name: spring-boot-app
     type: application
     urls:
-    - abdelali12-codes.github.io/abdelali-helm-charts/spring-boot-app-0.1.0.tgz
+    - https://abdelali12-codes.github.io/abdelali-helm-charts/spring-boot-app-0.1.0.tgz
     version: 0.1.0
 generated: "2022-10-30T20:45:02.422468084Z"
