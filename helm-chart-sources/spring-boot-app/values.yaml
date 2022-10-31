@@ -1,5 +1,6 @@
 deployment:
     name: spring-boot-deployment
+    namespace: default
     replicas: 2
     labels:
       release: helm
@@ -18,6 +19,7 @@ deployment:
 
 service:
     name: helm-service
+    namespace: default
     labels: 
        release: helm
     type: NodePort

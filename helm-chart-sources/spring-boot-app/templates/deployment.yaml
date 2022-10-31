@@ -3,6 +3,9 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ .Values.deployment.name }}
+{{- if .Values.deployment.namespace }}
+  namespace: {{ .Values.deployment.namespace }}
+{{- end }}
 {{- if .Values.deployment.labels }}
   labels:
 {{ toYaml .Values.deployment.labels | indent 8 }}
