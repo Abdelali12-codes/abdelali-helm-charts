@@ -1,24 +1,32 @@
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ .Values.deployment.name }}
+{{- if .Values.deployment.labels }}
   labels:
-    {{ .Values.deployment.labels }}
+{{ toYaml .Values.deployment.labels | indent 8 }}
+{{- end }}
 spec:
   replicas: {{ .Values.deployment.replicas }}
   selector:
+{{- if .Values.deployment.podlabels }}
     matchLabels:
-      {{ .Values.deployment.podLabels }}
+{{ toYaml .Values.deployment.podlabels | indent 8 }}
+{{- end }}
   template:
     metadata:
+{{- if .Values.deployment.podlabels }}
       labels:
-        {{ .Values.deployment.podLabels }}
+{{ toYaml .Values.deployment.podlabels | indent 8 }}
+{{- end }}
     spec:
-     containers:
-     - image: {{ .Values.deployment.image }}
-       name: {{ .Values.deployment.containername }}
-       ports:
-       - containerPort: {{ .Values.deployment.containerport }}
-       resources:
-          {{ .Values.deployment.resources }}
-            
+      containers:
+      - image: {{ .Values.deployment.image }}
+        name: {{ .Values.deployment.containername }}
+        ports:
+        - containerPort: {{ .Values.deployment.containerport }}
+{{- if .Values.deployment.resources }}
+        resources:
+{{ toYaml .Values.deployment.resources | indent 12 }}
+{{- end }}

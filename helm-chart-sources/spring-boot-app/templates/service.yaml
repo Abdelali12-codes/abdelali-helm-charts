@@ -2,15 +2,23 @@ apiVersion: v1
 kind: Service
 metadata:
   name: {{ .Values.service.name }}
- # annotations: 
+{{- if .Values.service.labels }}
+  labels:
+{{ toYaml .Values.service.labels | indent 8 }}
+{{- end }}
+ # annotations:
  #  external-dns.alpha.kubernetes.io/hostname: ekslab.abdelalitraining.com
 spec:
   type: {{ .Values.service.type }}
 
  # type: LoadBalancer
+{{- if .Values.deployment.podlabels }}
   selector:
-    {{ .Values.service.selector }}
+{{ toYaml .Values.deployment.podlabels | indent 8 }}
+{{- end }}
   ports:
     - port: {{ .Values.service.port }}
       targetPort: {{ .Values.service.targetPort }}
+    {{- if .Values.service.nodePort }}
       nodePort: {{ .Values.service.nodePort }}
+    {{- end }}
